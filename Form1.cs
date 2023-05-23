@@ -18,7 +18,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
             {
                 Directory.CreateDirectory("Modificados");
             }
-
+            openFileDialog1.InitialDirectory = Path.Combine(Application.StartupPath, "Modificados");
             toolStripStatusLabel1.Text = "Hecho por: Diana Sesma Yulissa Santiago y Kristan Ruíz Limón";
         }
 
@@ -26,7 +26,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
+                labelNombreArchivoOriginal.Text = Path.GetFileName(openFileDialog1.FileName);
             }
         }
     }

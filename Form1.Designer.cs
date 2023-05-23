@@ -49,6 +49,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxPorReemplazar = new System.Windows.Forms.TextBox();
             this.labelNoRemplazos = new System.Windows.Forms.Label();
+            this.buttonSalir = new System.Windows.Forms.Button();
             this.statusStripPrincipal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -223,11 +224,21 @@
             this.labelNoRemplazos.TabIndex = 15;
             this.labelNoRemplazos.Text = "No. de reemplazos: 0";
             // 
+            // buttonSalir
+            // 
+            this.buttonSalir.Location = new System.Drawing.Point(703, 630);
+            this.buttonSalir.Name = "buttonSalir";
+            this.buttonSalir.Size = new System.Drawing.Size(94, 29);
+            this.buttonSalir.TabIndex = 16;
+            this.buttonSalir.Text = "Salir";
+            this.buttonSalir.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 690);
+            this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.labelNoRemplazos);
             this.Controls.Add(this.textBoxPorReemplazar);
             this.Controls.Add(this.label5);
@@ -278,5 +289,6 @@
         private Label label5;
         private TextBox textBoxPorReemplazar;
         private Label labelNoRemplazos;
+        private Button buttonSalir;
     }
 }

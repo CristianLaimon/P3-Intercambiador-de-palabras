@@ -10,7 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Originales\" />
+    <None Update="Originales\Historia.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Originales\Historia2.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Originales\Historia3.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
