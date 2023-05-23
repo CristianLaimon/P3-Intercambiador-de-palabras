@@ -131,32 +131,21 @@ namespace SesmaSantiago_RuizLimon_Practica3
                 if (checkBox1.Checked)
                 {
                     rutaArchivoTemporal = Path.Combine(RutaProyecto, "temp", Path.GetFileNameWithoutExtension(openFileDialog1.FileName) + "modificado.txt");
-
-                    File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
-
-                    File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
-
-                    using (FileStream flujoTemporal = new FileStream(rutaArchivoTemporal, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
-                    {
-                        StreamReader lectorTemporal = new StreamReader(flujoTemporal);
-                        richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
-                        lectorTemporal.Close();
-                    }
                 }
                 else
                 {
                     rutaArchivoTemporal = Path.Combine(RutaProyecto, "temp2", Path.GetFileNameWithoutExtension(openFileDialog1.FileName) + "notModified.txt");
+                }
 
-                    File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
+                File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
 
-                    File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
+                File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
 
-                    using (FileStream flujoTemporal = new FileStream(rutaArchivoTemporal, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
-                    {
-                        StreamReader lectorTemporal = new StreamReader(flujoTemporal);
-                        richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
-                        lectorTemporal.Close();
-                    }
+                using (FileStream flujoTemporal = new FileStream(rutaArchivoTemporal, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
+                {
+                    StreamReader lectorTemporal = new StreamReader(flujoTemporal);
+                    richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
+                    lectorTemporal.Close();
                 }
 
                 string inputUpper = input.ToUpper().Trim();
