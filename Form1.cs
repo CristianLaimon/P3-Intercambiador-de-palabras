@@ -91,7 +91,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
                     texto = richTextBoxModificado.Text;
                 }
 
-                string textoModificado = texto.Replace(input, output); //Se creo una copia y se modifico, falta sobreescribir el archivo con este nuevo contenido.
+                string textoModificado = texto.Replace(input, output, StringComparison.OrdinalIgnoreCase); //Se creo una copia y se modifico, falta sobreescribir el archivo con este nuevo contenido.
 
                 File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
 
@@ -151,12 +151,12 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "temp"));
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "temp"));
         }
 
         private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
