@@ -63,6 +63,16 @@ namespace SesmaSantiago_RuizLimon_Practica3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2718781 {
+            get {
+                object obj = ResourceManager.GetObject("2718781", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap free_folder_icon_1484_thumb {
             get {
                 object obj = ResourceManager.GetObject("free-folder-icon-1484-thumb", resourceCulture);
@@ -76,6 +86,16 @@ namespace SesmaSantiago_RuizLimon_Practica3.Properties {
         internal static System.Drawing.Bitmap img_439894 {
             get {
                 object obj = ResourceManager.GetObject("img_439894", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_can_icon_symbol_illustration_vector {
+            get {
+                object obj = ResourceManager.GetObject("trash-can-icon-symbol-illustration-vector", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

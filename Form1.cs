@@ -217,6 +217,13 @@ namespace SesmaSantiago_RuizLimon_Practica3
             }
         }
 
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            textBoxInput.Text = "";
+            textBoxOutput.Text = "";
+            textBoxInput.Focus();
+        }
+
         private void IntercambiarInputs()
         {
             string tempInput = textBoxInput.Text.Trim();
