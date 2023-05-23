@@ -8,21 +8,34 @@ namespace SesmaSantiago_RuizLimon_Practica3
         {
             InitializeComponent();
         }
-
-        private void aToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-        }
-
         public static Form1 Instancia
         {
             get
             {
                 if (instancia == null)
                 {
-                    instancia = new Form1();
+                    foreach (Form form in Application.OpenForms)
+                    {
+                        if (form is Form1)
+                        {
+                            instancia = (Form1)form;
+                            break;
+                        }
+                    }
                 }
                 return instancia;
             }
+        }
+        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+           var guardarForm = new Guardar();
+           guardarForm.Show();
+           guardarForm.BringToFront();
+           this.Enabled = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,15 +54,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
             {
                 labelNombreArchivoOriginal.Text = Path.GetFileName(openFileDialog1.FileName);
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Guardar.Instancia.Show();
-            Guardar.Instancia.BringToFront();
-            this.Enabled = false;
-
-            
         }
     }
 }

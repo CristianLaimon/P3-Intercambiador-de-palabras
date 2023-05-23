@@ -12,22 +12,10 @@ namespace SesmaSantiago_RuizLimon_Practica3
 {
     public partial class Guardar : Form
     {
-        private static Guardar instancia;
         public Guardar()
         {
             InitializeComponent();
-        }
 
-        public static Guardar Instancia
-        {
-            get
-            {
-                if (instancia == null)
-                {
-                    instancia = new Guardar();
-                }
-                return instancia;
-            }
         }
 
         private void Guardar_Load(object sender, EventArgs e)
@@ -38,8 +26,8 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            this.Close();
             Form1.Instancia.Enabled = true;
+            this.Close();
         }
     }
 }
