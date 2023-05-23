@@ -47,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxModificado = new System.Windows.Forms.RichTextBox();
-            this.buttonGuardar = new System.Windows.Forms.Button();
             this.labelNombreArchivoOriginal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
@@ -204,17 +203,6 @@
             this.richTextBoxModificado.TabIndex = 9;
             this.richTextBoxModificado.Text = "";
             // 
-            // buttonGuardar
-            // 
-            this.buttonGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonGuardar.Location = new System.Drawing.Point(568, 668);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(110, 29);
-            this.buttonGuardar.TabIndex = 10;
-            this.buttonGuardar.Text = "Guardar";
-            this.buttonGuardar.UseVisualStyleBackColor = true;
-            this.buttonGuardar.Click += new System.EventHandler(this.button1_Click);
-            // 
             // labelNombreArchivoOriginal
             // 
             this.labelNombreArchivoOriginal.AutoSize = true;
@@ -332,7 +320,6 @@
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelNombreArchivoOriginal);
-            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.richTextBoxModificado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -376,7 +363,6 @@
         private Label label3;
         private Label label4;
         private RichTextBox richTextBoxModificado;
-        private Button buttonGuardar;
         private Label labelNombreArchivoOriginal;
         private Label label5;
         private TextBox textBoxOutput;

@@ -16,18 +16,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
             InitializeComponent();
         }
 
-        public static Form1 Instancia
-        {
-            get
-            {
-                if (instancia == null)
-                {
-                    instancia = (Form1)Application.OpenForms[0];
-                }
-                return instancia;
-            }
-        }
-
         public string NombreArchivo { get => nombreArchivo; set => nombreArchivo = value; }
         public string RutaArchivo { get => rutaArchivo; set => rutaArchivo = value; }
         public string RutaProyecto { get => rutaProyecto; set => rutaProyecto = value; }
@@ -48,10 +36,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var guardarForm = new Guardar();
-            guardarForm.Show();
-            guardarForm.BringToFront();
-            this.Enabled = false;
         }
 
         private void buttonReemplazar_Click(object sender, EventArgs e)
@@ -79,10 +63,12 @@ namespace SesmaSantiago_RuizLimon_Practica3
             }
 
             openFileDialog1.InitialDirectory = Path.Combine(Application.StartupPath, "Originales");
+            saveFileDialog1.InitialDirectory = Path.Combine(Application.StartupPath, "Modificados");
+            saveFileDialog1.DefaultExt = "txt";
+            saveFileDialog1.Filter = "Archivos de Text (*.txt)|*.txt";
             toolStripStatusLabel1.Text = "Hecho por: Diana Sesma Yulissa Santiago y Kristan Ruíz Limón";
             textBoxInput.Enabled = false;
             textBoxOutput.Enabled = false;
-            buttonGuardar.Enabled = false;
         }
 
         private void Reemplazar()
@@ -148,7 +134,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
                 textBoxOutput.Enabled = true;
                 textBoxInput.Enabled = true;
                 buttonReemplazar.Enabled = true;
-                buttonGuardar.Enabled = true;
             }
         }
 
@@ -156,12 +141,12 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "temp"));
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "temp"));
         }
 
         private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
