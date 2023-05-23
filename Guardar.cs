@@ -46,20 +46,21 @@ namespace SesmaSantiago_RuizLimon_Practica3
             Form1.Instancia.Enabled = true;
             if (textBoxNewName.Text != "")
             {
-                File.Copy(Path.Combine(Application.StartupPath, "temp", Form1.Instancia.NombreArchivo), textBoxRutaNueva.Text.Replace(Path.GetFileName(saveFileDialog1.FileName), textBoxNewName.Text), true);
+                File.Copy(Path.Combine(Application.StartupPath, "temp", Form1.Instancia.NombreArchivo), textBoxRutaNueva.Text.Replace(Path.GetFileName(saveFileDialog1.FileName), textBoxNewName.Text) + ".txt", true);
             }
             else
             {
-                File.Copy(Path.Combine(Application.StartupPath, "temp", Form1.Instancia.NombreArchivo), textBoxRutaNueva.Text + "Modificado:D", true);
+                File.Copy(Path.Combine(Application.StartupPath, "temp", Form1.Instancia.NombreArchivo), textBoxRutaNueva.Text + "Modificado:D.txt", true);
             }
         }
 
         private void buttonSeleccionarDirectorio_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 rutaaGuardar = saveFileDialog1.FileName;
                 textBoxRutaNueva.Text = rutaaGuardar;
+                openFileDialog1.FileName = textBoxNewName.Text;
             }
             buttonGuardar.Enabled = true;
         }
