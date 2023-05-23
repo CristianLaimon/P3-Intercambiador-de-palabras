@@ -93,8 +93,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
                 string textoModificado = texto.Replace(input, output); //Se creo una copia y se modifico, falta sobreescribir el archivo con este nuevo contenido.
 
-                textoModificado = textoModificado.ToUpper();
-
                 File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
 
                 File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
@@ -110,7 +108,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
                 int contador = 0;
                 int indiceEncontrado = 0;
 
-                while ((indiceEncontrado = texto.IndexOf(input, indiceInicial)) != -1)
+                while ((indiceEncontrado = texto.IndexOf(input, indiceInicial)) != -1) 
                 {
                     contador++;
                     indiceInicial = indiceEncontrado + input.Length;
