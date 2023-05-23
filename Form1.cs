@@ -75,7 +75,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
         {
             if (textBoxInput.Text != "" && textBoxOutput.Text != null)
             {
-                string rutaArchivoTemporal = Path.Combine(RutaProyecto, "temp", NombreArchivo);
+                string rutaArchivoTemporal = Path.Combine(RutaProyecto, "temp", Path.GetFileNameWithoutExtension(openFileDialog1.FileName) + "modificado.txt");
                 string input = textBoxInput.Text;
                 string output = textBoxOutput.Text;
                 string texto;
