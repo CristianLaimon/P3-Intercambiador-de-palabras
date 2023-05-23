@@ -14,14 +14,16 @@ namespace SesmaSantiago_RuizLimon_Practica3
             {
                 if (instancia == null)
                 {
-                    foreach (Form form in Application.OpenForms)
-                    {
-                        if (form is Form1)
-                        {
-                            instancia = (Form1)form;
-                            break;
-                        }
-                    }
+                    //foreach (Form form in Application.OpenForms)
+                    //{
+                    //    if (form is Form1)
+                    //    {
+                    //        instancia = (Form1)form;
+                    //        break;
+                    //    }
+                    //}
+
+                    instancia = (Form1)Application.OpenForms[0];
                 }
                 return instancia;
             }
