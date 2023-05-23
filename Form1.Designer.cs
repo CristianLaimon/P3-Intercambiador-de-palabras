@@ -34,6 +34,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seleccionarNuevoArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirModificadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirLosOtrosModificadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.créditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hechoPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dianaYulissaSesmaSantiagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,10 +59,16 @@
             this.buttonReemplazar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.statusStripPrincipal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStripPrincipal
@@ -95,7 +103,9 @@
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.seleccionarNuevoArchivoToolStripMenuItem});
+            this.seleccionarNuevoArchivoToolStripMenuItem,
+            this.abrirModificadosToolStripMenuItem,
+            this.abrirLosOtrosModificadosToolStripMenuItem});
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.aToolStripMenuItem.Text = "Abrir";
@@ -106,6 +116,20 @@
             this.seleccionarNuevoArchivoToolStripMenuItem.Size = new System.Drawing.Size(273, 26);
             this.seleccionarNuevoArchivoToolStripMenuItem.Text = "Seleccionar nuevo archivo...";
             this.seleccionarNuevoArchivoToolStripMenuItem.Click += new System.EventHandler(this.seleccionarNuevoArchivoToolStripMenuItem_Click);
+            // 
+            // abrirModificadosToolStripMenuItem
+            // 
+            this.abrirModificadosToolStripMenuItem.Name = "abrirModificadosToolStripMenuItem";
+            this.abrirModificadosToolStripMenuItem.Size = new System.Drawing.Size(273, 26);
+            this.abrirModificadosToolStripMenuItem.Text = "Abrir modificados";
+            this.abrirModificadosToolStripMenuItem.Click += new System.EventHandler(this.abrirModificadosToolStripMenuItem_Click);
+            // 
+            // abrirLosOtrosModificadosToolStripMenuItem
+            // 
+            this.abrirLosOtrosModificadosToolStripMenuItem.Name = "abrirLosOtrosModificadosToolStripMenuItem";
+            this.abrirLosOtrosModificadosToolStripMenuItem.Size = new System.Drawing.Size(273, 26);
+            this.abrirLosOtrosModificadosToolStripMenuItem.Text = "Abrir los otros modificados";
+            this.abrirLosOtrosModificadosToolStripMenuItem.Click += new System.EventHandler(this.abrirLosOtrosModificadosToolStripMenuItem_Click);
             // 
             // créditosToolStripMenuItem
             // 
@@ -286,7 +310,7 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::SesmaSantiago_RuizLimon_Practica3.Properties.Resources.free_folder_icon_1484_thumb;
-            this.pictureBox2.Location = new System.Drawing.Point(743, 161);
+            this.pictureBox2.Location = new System.Drawing.Point(743, 150);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -298,18 +322,68 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label6.Location = new System.Drawing.Point(608, 172);
+            this.label6.Location = new System.Drawing.Point(608, 155);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 20);
             this.label6.TabIndex = 21;
             this.label6.Text = "Abrir Modificados";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(579, 627);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(180, 24);
+            this.checkBox1.TabIndex = 22;
+            this.checkBox1.Text = "Cambiar \"Modificado\"";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::SesmaSantiago_RuizLimon_Practica3.Properties.Resources.img_439894;
+            this.pictureBox3.Location = new System.Drawing.Point(691, 111);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(26, 27);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 23;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::SesmaSantiago_RuizLimon_Practica3.Properties.Resources.free_folder_icon_1484_thumb;
+            this.pictureBox4.Location = new System.Drawing.Point(743, 192);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(27, 31);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 24;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(587, 198);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(150, 20);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "Abrir los otros modif.";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 734);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonReemplazar);
@@ -335,6 +409,7 @@
             this.MinimumSize = new System.Drawing.Size(815, 781);
             this.Name = "Form1";
             this.Text = "Reemplazador de Texto";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStripPrincipal.ResumeLayout(false);
             this.statusStripPrincipal.PerformLayout();
@@ -342,6 +417,8 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -376,5 +453,11 @@
         private Button buttonReemplazar;
         private PictureBox pictureBox2;
         private Label label6;
+        private CheckBox checkBox1;
+        private PictureBox pictureBox3;
+        private ToolStripMenuItem abrirModificadosToolStripMenuItem;
+        private PictureBox pictureBox4;
+        private Label label7;
+        private ToolStripMenuItem abrirLosOtrosModificadosToolStripMenuItem;
     }
 }
