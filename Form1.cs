@@ -6,6 +6,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
         private StreamWriter escritor;
         private FileStream flujo;
         private StreamReader lector;
+
         //private char[] textoChar, inputChar, outputChar;
         public Form1()
         {
@@ -24,12 +25,36 @@ namespace SesmaSantiago_RuizLimon_Practica3
             }
         }
 
+        private void AbrirFlujo(string ruta, FileMode fileMode, FileAccess fileAccess)
+        {
+            if (flujo != null)
+            {
+                flujo.Close();
+                lector.Close();
+                escritor.Close();
+            }
+
+            flujo = new FileStream(ruta, fileMode, fileAccess);
+            escritor = new StreamWriter(flujo);
+            lector = new StreamReader(flujo);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             var guardarForm = new Guardar();
             guardarForm.Show();
             guardarForm.BringToFront();
             this.Enabled = false;
+        }
+
+        private void buttonReemplazar_Click(object sender, EventArgs e)
+        {
+            Reemplazar();
+        }
+
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void buttonSeleccionarArchivo_Click(object sender, EventArgs e) => SeleccionarFile();
@@ -46,11 +71,21 @@ namespace SesmaSantiago_RuizLimon_Practica3
             textBoxOutput.Enabled = false;
         }
 
+        private void Reemplazar()
+        {
+            string input = textBoxInput.Text, output = textBoxOutput.Text, texto = richTextBoxOriginal.Text;
+            string textoModificado = texto.Replace(input, output);
+
+            File.WriteAllText(openFileDialog1.FileName, textoModificado);
+
+            richTextBoxModificado.Text = lector.ReadToEnd();
+            flujo.Seek(0, SeekOrigin.Begin);
+        }
+
         private void SeleccionarFile()
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-
                 labelNombreArchivoOriginal.Text = Path.GetFileName(openFileDialog1.FileName);
                 toolStripStatusLabel1.Text = openFileDialog1.FileName;
 
@@ -63,56 +98,26 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
                 textBoxOutput.Enabled = true;
                 textBoxInput.Enabled = true;
-
-
             }
-        }
-
-        private void AbrirFlujo(string ruta, FileMode fileMode, FileAccess fileAccess)
-        {
-            if (flujo != null)
-            {
-                flujo.Close();
-                lector.Close();
-                escritor.Close();
-            }
-
-            flujo = new FileStream(ruta, fileMode, fileAccess);
-            escritor = new StreamWriter(flujo);
-            lector = new StreamReader(flujo);
         }
 
         private void seleccionarNuevoArchivoToolStripMenuItem_Click(object sender, EventArgs e) => SeleccionarFile();
 
-        private void buttonSalir_Click(object sender, EventArgs e)
+
+        private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Application.Exit();
-        }
-
-        private void algo()
-        {
-
-            string input = textBoxInput.Text, output = textBoxOutput.Text, texto = richTextBoxOriginal.Text;
-            string textoModificado = texto.Replace(input, output);
-
-            File.WriteAllText(openFileDialog1.FileName, textoModificado);
-
-            richTextBoxModificado.Text = lector.ReadToEnd();
-            flujo.Seek(0, SeekOrigin.Begin);
-
-        }
-
-        private void textBoxOutput_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
             {
-
+                Reemplazar();
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void textBoxOutput_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                Reemplazar();
+            }
         }
     }
 }

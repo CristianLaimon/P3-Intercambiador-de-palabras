@@ -56,7 +56,7 @@
             this.buttonSalir = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonSeleccionarArchivo = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonReemplazar = new System.Windows.Forms.Button();
             this.statusStripPrincipal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -164,6 +164,7 @@
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(186, 27);
             this.textBoxInput.TabIndex = 5;
+            this.textBoxInput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxInput_KeyPress);
             // 
             // label2
             // 
@@ -244,7 +245,7 @@
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.Size = new System.Drawing.Size(186, 27);
             this.textBoxOutput.TabIndex = 14;
-            this.textBoxOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxOutput_KeyDown);
+            this.textBoxOutput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxOutput_KeyPress);
             // 
             // labelNoRemplazos
             // 
@@ -285,22 +286,22 @@
             this.buttonSeleccionarArchivo.UseVisualStyleBackColor = true;
             this.buttonSeleccionarArchivo.Click += new System.EventHandler(this.buttonSeleccionarArchivo_Click);
             // 
-            // button2
+            // buttonReemplazar
             // 
-            this.button2.Location = new System.Drawing.Point(332, 650);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 30);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Reemplazar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonReemplazar.Location = new System.Drawing.Point(332, 650);
+            this.buttonReemplazar.Name = "buttonReemplazar";
+            this.buttonReemplazar.Size = new System.Drawing.Size(106, 30);
+            this.buttonReemplazar.TabIndex = 19;
+            this.buttonReemplazar.Text = "Reemplazar";
+            this.buttonReemplazar.UseVisualStyleBackColor = true;
+            this.buttonReemplazar.Click += new System.EventHandler(this.buttonReemplazar_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 734);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonReemplazar);
             this.Controls.Add(this.buttonSeleccionarArchivo);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonSalir);
@@ -362,6 +363,6 @@
         private ToolStripMenuItem hechoPorToolStripMenuItem;
         private ToolStripMenuItem dianaYulissaSesmaSantiagoToolStripMenuItem;
         private ToolStripMenuItem kristanRuízLimónToolStripMenuItem;
-        private Button button2;
+        private Button buttonReemplazar;
     }
 }
