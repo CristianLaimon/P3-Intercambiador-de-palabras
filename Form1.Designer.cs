@@ -35,11 +35,14 @@
             this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seleccionarNuevoArchivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.créditosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hechoPorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dianaYulissaSesmaSantiagoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kristanRuízLimónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBoxOriginal = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxTextoRemplazar = new System.Windows.Forms.TextBox();
+            this.textBoxInput = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,11 +51,15 @@
             this.labelNombreArchivoOriginal = new System.Windows.Forms.Label();
             this.labelNombreArchivoModificado = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBoxPorReemplazar = new System.Windows.Forms.TextBox();
+            this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.labelNoRemplazos = new System.Windows.Forms.Label();
             this.buttonSalir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonSeleccionarArchivo = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.statusStripPrincipal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStripPrincipal
@@ -60,7 +67,7 @@
             this.statusStripPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStripPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStripPrincipal.Location = new System.Drawing.Point(0, 664);
+            this.statusStripPrincipal.Location = new System.Drawing.Point(0, 708);
             this.statusStripPrincipal.Name = "statusStripPrincipal";
             this.statusStripPrincipal.Size = new System.Drawing.Size(797, 26);
             this.statusStripPrincipal.TabIndex = 1;
@@ -91,7 +98,6 @@
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(56, 24);
             this.aToolStripMenuItem.Text = "Abrir";
-            this.aToolStripMenuItem.Click += new System.EventHandler(this.aToolStripMenuItem_Click);
             // 
             // seleccionarNuevoArchivoToolStripMenuItem
             // 
@@ -102,10 +108,32 @@
             // 
             // créditosToolStripMenuItem
             // 
+            this.créditosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hechoPorToolStripMenuItem,
+            this.dianaYulissaSesmaSantiagoToolStripMenuItem,
+            this.kristanRuízLimónToolStripMenuItem});
             this.créditosToolStripMenuItem.Name = "créditosToolStripMenuItem";
             this.créditosToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.créditosToolStripMenuItem.Size = new System.Drawing.Size(78, 24);
             this.créditosToolStripMenuItem.Text = "Créditos";
+            // 
+            // hechoPorToolStripMenuItem
+            // 
+            this.hechoPorToolStripMenuItem.Name = "hechoPorToolStripMenuItem";
+            this.hechoPorToolStripMenuItem.Size = new System.Drawing.Size(289, 26);
+            this.hechoPorToolStripMenuItem.Text = "Hecho por:";
+            // 
+            // dianaYulissaSesmaSantiagoToolStripMenuItem
+            // 
+            this.dianaYulissaSesmaSantiagoToolStripMenuItem.Name = "dianaYulissaSesmaSantiagoToolStripMenuItem";
+            this.dianaYulissaSesmaSantiagoToolStripMenuItem.Size = new System.Drawing.Size(289, 26);
+            this.dianaYulissaSesmaSantiagoToolStripMenuItem.Text = "Diana Yulissa Sesma Santiago";
+            // 
+            // kristanRuízLimónToolStripMenuItem
+            // 
+            this.kristanRuízLimónToolStripMenuItem.Name = "kristanRuízLimónToolStripMenuItem";
+            this.kristanRuízLimónToolStripMenuItem.Size = new System.Drawing.Size(289, 26);
+            this.kristanRuízLimónToolStripMenuItem.Text = "Kristan Ruíz Limón";
             // 
             // openFileDialog1
             // 
@@ -113,7 +141,7 @@
             // 
             // richTextBoxOriginal
             // 
-            this.richTextBoxOriginal.Location = new System.Drawing.Point(30, 192);
+            this.richTextBoxOriginal.Location = new System.Drawing.Point(24, 235);
             this.richTextBoxOriginal.Name = "richTextBoxOriginal";
             this.richTextBoxOriginal.ReadOnly = true;
             this.richTextBoxOriginal.Size = new System.Drawing.Size(345, 374);
@@ -130,17 +158,17 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "ReemplazadorInador";
             // 
-            // textBoxTextoRemplazar
+            // textBoxInput
             // 
-            this.textBoxTextoRemplazar.Location = new System.Drawing.Point(249, 111);
-            this.textBoxTextoRemplazar.Name = "textBoxTextoRemplazar";
-            this.textBoxTextoRemplazar.Size = new System.Drawing.Size(186, 27);
-            this.textBoxTextoRemplazar.TabIndex = 5;
+            this.textBoxInput.Location = new System.Drawing.Point(261, 100);
+            this.textBoxInput.Name = "textBoxInput";
+            this.textBoxInput.Size = new System.Drawing.Size(186, 27);
+            this.textBoxInput.TabIndex = 5;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(104, 114);
+            this.label2.Location = new System.Drawing.Point(116, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 6;
@@ -149,7 +177,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 160);
+            this.label3.Location = new System.Drawing.Point(22, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 20);
             this.label3.TabIndex = 7;
@@ -158,7 +186,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(416, 160);
+            this.label4.Location = new System.Drawing.Point(410, 203);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 20);
             this.label4.TabIndex = 8;
@@ -166,7 +194,7 @@
             // 
             // richTextBoxModificado
             // 
-            this.richTextBoxModificado.Location = new System.Drawing.Point(416, 192);
+            this.richTextBoxModificado.Location = new System.Drawing.Point(410, 235);
             this.richTextBoxModificado.Name = "richTextBoxModificado";
             this.richTextBoxModificado.ReadOnly = true;
             this.richTextBoxModificado.Size = new System.Drawing.Size(360, 374);
@@ -175,7 +203,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(338, 609);
+            this.button1.Location = new System.Drawing.Point(568, 668);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 29);
             this.button1.TabIndex = 10;
@@ -186,7 +214,7 @@
             // labelNombreArchivoOriginal
             // 
             this.labelNombreArchivoOriginal.AutoSize = true;
-            this.labelNombreArchivoOriginal.Location = new System.Drawing.Point(28, 574);
+            this.labelNombreArchivoOriginal.Location = new System.Drawing.Point(22, 617);
             this.labelNombreArchivoOriginal.Name = "labelNombreArchivoOriginal";
             this.labelNombreArchivoOriginal.Size = new System.Drawing.Size(239, 20);
             this.labelNombreArchivoOriginal.TabIndex = 11;
@@ -195,7 +223,7 @@
             // labelNombreArchivoModificado
             // 
             this.labelNombreArchivoModificado.AutoSize = true;
-            this.labelNombreArchivoModificado.Location = new System.Drawing.Point(416, 574);
+            this.labelNombreArchivoModificado.Location = new System.Drawing.Point(410, 617);
             this.labelNombreArchivoModificado.Name = "labelNombreArchivoModificado";
             this.labelNombreArchivoModificado.Size = new System.Drawing.Size(239, 20);
             this.labelNombreArchivoModificado.TabIndex = 12;
@@ -204,23 +232,24 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(442, 118);
+            this.label5.Location = new System.Drawing.Point(454, 107);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 20);
             this.label5.TabIndex = 13;
             this.label5.Text = "por";
             // 
-            // textBoxPorReemplazar
+            // textBoxOutput
             // 
-            this.textBoxPorReemplazar.Location = new System.Drawing.Point(480, 114);
-            this.textBoxPorReemplazar.Name = "textBoxPorReemplazar";
-            this.textBoxPorReemplazar.Size = new System.Drawing.Size(186, 27);
-            this.textBoxPorReemplazar.TabIndex = 14;
+            this.textBoxOutput.Location = new System.Drawing.Point(492, 103);
+            this.textBoxOutput.Name = "textBoxOutput";
+            this.textBoxOutput.Size = new System.Drawing.Size(186, 27);
+            this.textBoxOutput.TabIndex = 14;
+            this.textBoxOutput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBoxOutput_KeyDown);
             // 
             // labelNoRemplazos
             // 
             this.labelNoRemplazos.AutoSize = true;
-            this.labelNoRemplazos.Location = new System.Drawing.Point(28, 634);
+            this.labelNoRemplazos.Location = new System.Drawing.Point(22, 677);
             this.labelNoRemplazos.Name = "labelNoRemplazos";
             this.labelNoRemplazos.Size = new System.Drawing.Size(149, 20);
             this.labelNoRemplazos.TabIndex = 15;
@@ -228,21 +257,55 @@
             // 
             // buttonSalir
             // 
-            this.buttonSalir.Location = new System.Drawing.Point(703, 630);
+            this.buttonSalir.Location = new System.Drawing.Point(691, 668);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(94, 29);
             this.buttonSalir.TabIndex = 16;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SesmaSantiago_RuizLimon_Practica3.Properties.Resources.free_folder_icon_1484_thumb;
+            this.pictureBox1.Location = new System.Drawing.Point(24, 150);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 17;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonSeleccionarArchivo
+            // 
+            this.buttonSeleccionarArchivo.Location = new System.Drawing.Point(52, 150);
+            this.buttonSeleccionarArchivo.Name = "buttonSeleccionarArchivo";
+            this.buttonSeleccionarArchivo.Size = new System.Drawing.Size(149, 31);
+            this.buttonSeleccionarArchivo.TabIndex = 18;
+            this.buttonSeleccionarArchivo.Text = "Seleccionar archivo";
+            this.buttonSeleccionarArchivo.UseVisualStyleBackColor = true;
+            this.buttonSeleccionarArchivo.Click += new System.EventHandler(this.buttonSeleccionarArchivo_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(332, 650);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 30);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Reemplazar";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 690);
+            this.ClientSize = new System.Drawing.Size(797, 734);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.buttonSeleccionarArchivo);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonSalir);
             this.Controls.Add(this.labelNoRemplazos);
-            this.Controls.Add(this.textBoxPorReemplazar);
+            this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelNombreArchivoModificado);
             this.Controls.Add(this.labelNombreArchivoOriginal);
@@ -251,7 +314,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBoxTextoRemplazar);
+            this.Controls.Add(this.textBoxInput);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBoxOriginal);
             this.Controls.Add(this.statusStripPrincipal);
@@ -265,6 +328,7 @@
             this.statusStripPrincipal.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -281,7 +345,7 @@
         private SaveFileDialog saveFileDialog1;
         private RichTextBox richTextBoxOriginal;
         private Label label1;
-        private TextBox textBoxTextoRemplazar;
+        private TextBox textBoxInput;
         private Label label2;
         private Label label3;
         private Label label4;
@@ -290,8 +354,14 @@
         private Label labelNombreArchivoOriginal;
         private Label labelNombreArchivoModificado;
         private Label label5;
-        private TextBox textBoxPorReemplazar;
+        private TextBox textBoxOutput;
         private Label labelNoRemplazos;
         private Button buttonSalir;
+        private PictureBox pictureBox1;
+        private Button buttonSeleccionarArchivo;
+        private ToolStripMenuItem hechoPorToolStripMenuItem;
+        private ToolStripMenuItem dianaYulissaSesmaSantiagoToolStripMenuItem;
+        private ToolStripMenuItem kristanRuízLimónToolStripMenuItem;
+        private Button button2;
     }
 }
