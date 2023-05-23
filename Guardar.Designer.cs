@@ -37,6 +37,7 @@
             this.textBoxRutaNueva = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +53,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 177);
+            this.label2.Location = new System.Drawing.Point(12, 191);
+            this.label2.MaximumSize = new System.Drawing.Size(415, 20);
+            this.label2.MinimumSize = new System.Drawing.Size(415, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(415, 20);
             this.label2.TabIndex = 1;
@@ -62,7 +65,7 @@
             // 
             this.textBoxNewName.Location = new System.Drawing.Point(145, 24);
             this.textBoxNewName.Name = "textBoxNewName";
-            this.textBoxNewName.Size = new System.Drawing.Size(283, 27);
+            this.textBoxNewName.Size = new System.Drawing.Size(438, 27);
             this.textBoxNewName.TabIndex = 2;
             // 
             // buttonGuardar
@@ -87,18 +90,19 @@
             // 
             // buttonSeleccionarDirectorio
             // 
-            this.buttonSeleccionarDirectorio.Location = new System.Drawing.Point(438, 72);
+            this.buttonSeleccionarDirectorio.Location = new System.Drawing.Point(598, 72);
             this.buttonSeleccionarDirectorio.Name = "buttonSeleccionarDirectorio";
             this.buttonSeleccionarDirectorio.Size = new System.Drawing.Size(37, 32);
             this.buttonSeleccionarDirectorio.TabIndex = 5;
             this.buttonSeleccionarDirectorio.Text = "...";
             this.buttonSeleccionarDirectorio.UseVisualStyleBackColor = true;
+            this.buttonSeleccionarDirectorio.Click += new System.EventHandler(this.buttonSeleccionarDirectorio_Click);
             // 
             // textBoxRutaNueva
             // 
             this.textBoxRutaNueva.Location = new System.Drawing.Point(143, 74);
             this.textBoxRutaNueva.Name = "textBoxRutaNueva";
-            this.textBoxRutaNueva.Size = new System.Drawing.Size(284, 27);
+            this.textBoxRutaNueva.Size = new System.Drawing.Size(439, 27);
             this.textBoxRutaNueva.TabIndex = 6;
             // 
             // label3
@@ -124,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 219);
+            this.ClientSize = new System.Drawing.Size(647, 236);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxRutaNueva);
@@ -136,6 +140,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Guardar";
             this.Text = "Guardar";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Guardar_FormClosed);
             this.Load += new System.EventHandler(this.Guardar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -154,5 +159,6 @@
         private TextBox textBoxRutaNueva;
         private Label label3;
         private PictureBox pictureBox1;
+        private SaveFileDialog saveFileDialog1;
     }
 }

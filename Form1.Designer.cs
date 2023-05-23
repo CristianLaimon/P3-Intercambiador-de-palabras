@@ -47,9 +47,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.richTextBoxModificado = new System.Windows.Forms.RichTextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
             this.labelNombreArchivoOriginal = new System.Windows.Forms.Label();
-            this.labelNombreArchivoModificado = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxOutput = new System.Windows.Forms.TextBox();
             this.labelNoRemplazos = new System.Windows.Forms.Label();
@@ -57,9 +56,12 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonSeleccionarArchivo = new System.Windows.Forms.Button();
             this.buttonReemplazar = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.statusStripPrincipal.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStripPrincipal
@@ -160,7 +162,7 @@
             // 
             // textBoxInput
             // 
-            this.textBoxInput.Location = new System.Drawing.Point(261, 100);
+            this.textBoxInput.Location = new System.Drawing.Point(261, 108);
             this.textBoxInput.Name = "textBoxInput";
             this.textBoxInput.Size = new System.Drawing.Size(186, 27);
             this.textBoxInput.TabIndex = 5;
@@ -169,7 +171,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 103);
+            this.label2.Location = new System.Drawing.Point(116, 111);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 6;
@@ -202,15 +204,16 @@
             this.richTextBoxModificado.TabIndex = 9;
             this.richTextBoxModificado.Text = "";
             // 
-            // button1
+            // buttonGuardar
             // 
-            this.button1.Location = new System.Drawing.Point(568, 668);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 29);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.buttonGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonGuardar.Location = new System.Drawing.Point(568, 668);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(110, 29);
+            this.buttonGuardar.TabIndex = 10;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelNombreArchivoOriginal
             // 
@@ -221,19 +224,10 @@
             this.labelNombreArchivoOriginal.TabIndex = 11;
             this.labelNombreArchivoOriginal.Text = "No se ha seleccionado un archivo...";
             // 
-            // labelNombreArchivoModificado
-            // 
-            this.labelNombreArchivoModificado.AutoSize = true;
-            this.labelNombreArchivoModificado.Location = new System.Drawing.Point(410, 617);
-            this.labelNombreArchivoModificado.Name = "labelNombreArchivoModificado";
-            this.labelNombreArchivoModificado.Size = new System.Drawing.Size(239, 20);
-            this.labelNombreArchivoModificado.TabIndex = 12;
-            this.labelNombreArchivoModificado.Text = "No se ha seleccionado un archivo...";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(454, 107);
+            this.label5.Location = new System.Drawing.Point(454, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(32, 20);
             this.label5.TabIndex = 13;
@@ -241,7 +235,7 @@
             // 
             // textBoxOutput
             // 
-            this.textBoxOutput.Location = new System.Drawing.Point(492, 103);
+            this.textBoxOutput.Location = new System.Drawing.Point(492, 111);
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.Size = new System.Drawing.Size(186, 27);
             this.textBoxOutput.TabIndex = 6;
@@ -258,6 +252,7 @@
             // 
             // buttonSalir
             // 
+            this.buttonSalir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSalir.Location = new System.Drawing.Point(691, 668);
             this.buttonSalir.Name = "buttonSalir";
             this.buttonSalir.Size = new System.Drawing.Size(94, 29);
@@ -278,6 +273,7 @@
             // 
             // buttonSeleccionarArchivo
             // 
+            this.buttonSeleccionarArchivo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonSeleccionarArchivo.Location = new System.Drawing.Point(52, 150);
             this.buttonSeleccionarArchivo.Name = "buttonSeleccionarArchivo";
             this.buttonSeleccionarArchivo.Size = new System.Drawing.Size(149, 31);
@@ -288,6 +284,8 @@
             // 
             // buttonReemplazar
             // 
+            this.buttonReemplazar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonReemplazar.Enabled = false;
             this.buttonReemplazar.Location = new System.Drawing.Point(331, 655);
             this.buttonReemplazar.Name = "buttonReemplazar";
             this.buttonReemplazar.Size = new System.Drawing.Size(106, 30);
@@ -296,11 +294,36 @@
             this.buttonReemplazar.UseVisualStyleBackColor = true;
             this.buttonReemplazar.Click += new System.EventHandler(this.buttonReemplazar_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::SesmaSantiago_RuizLimon_Practica3.Properties.Resources.free_folder_icon_1484_thumb;
+            this.pictureBox2.Location = new System.Drawing.Point(743, 161);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(27, 31);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 20;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label6.Location = new System.Drawing.Point(608, 172);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(129, 20);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Abrir Modificados";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(797, 734);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.buttonReemplazar);
             this.Controls.Add(this.buttonSeleccionarArchivo);
             this.Controls.Add(this.pictureBox1);
@@ -308,9 +331,8 @@
             this.Controls.Add(this.labelNoRemplazos);
             this.Controls.Add(this.textBoxOutput);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.labelNombreArchivoModificado);
             this.Controls.Add(this.labelNombreArchivoOriginal);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonGuardar);
             this.Controls.Add(this.richTextBoxModificado);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -322,6 +344,8 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(815, 781);
+            this.MinimumSize = new System.Drawing.Size(815, 781);
             this.Name = "Form1";
             this.Text = "Reemplazador de Texto";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -330,6 +354,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,9 +376,8 @@
         private Label label3;
         private Label label4;
         private RichTextBox richTextBoxModificado;
-        private Button button1;
+        private Button buttonGuardar;
         private Label labelNombreArchivoOriginal;
-        private Label labelNombreArchivoModificado;
         private Label label5;
         private TextBox textBoxOutput;
         private Label labelNoRemplazos;
@@ -364,5 +388,7 @@
         private ToolStripMenuItem dianaYulissaSesmaSantiagoToolStripMenuItem;
         private ToolStripMenuItem kristanRuízLimónToolStripMenuItem;
         private Button buttonReemplazar;
+        private PictureBox pictureBox2;
+        private Label label6;
     }
 }

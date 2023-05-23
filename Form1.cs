@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace SesmaSantiago_RuizLimon_Practica3
 {
     public partial class Form1 : Form
@@ -7,6 +9,7 @@ namespace SesmaSantiago_RuizLimon_Practica3
         private FileStream flujo;
         private StreamReader lector;
         private string nombreArchivo, rutaArchivo, rutaProyecto;
+        private bool alreadyModified;
 
         public Form1()
         {
@@ -25,13 +28,17 @@ namespace SesmaSantiago_RuizLimon_Practica3
             }
         }
 
+        public string NombreArchivo { get => nombreArchivo; set => nombreArchivo = value; }
+        public string RutaArchivo { get => rutaArchivo; set => rutaArchivo = value; }
+        public string RutaProyecto { get => rutaProyecto; set => rutaProyecto = value; }
+
         private void AbrirFlujo(string ruta, FileMode fileMode, FileAccess fileAccess)
         {
             if (flujo != null)
             {
-                flujo.Close();
-                lector.Close();
                 escritor.Close();
+                lector.Close();
+                flujo.Close();
             }
 
             flujo = new FileStream(ruta, fileMode, fileAccess);
@@ -75,39 +82,63 @@ namespace SesmaSantiago_RuizLimon_Practica3
             toolStripStatusLabel1.Text = "Hecho por: Diana Sesma Yulissa Santiago y Kristan Ruíz Limón";
             textBoxInput.Enabled = false;
             textBoxOutput.Enabled = false;
+            buttonGuardar.Enabled = false;
         }
 
         private void Reemplazar()
         {
-            string rutaArchivoTemporal = Path.Combine(rutaProyecto, "temp", nombreArchivo);
-            string input = textBoxInput.Text;
-            string output = textBoxOutput.Text;
-            string texto = richTextBoxOriginal.Text;
-            string textoModificado = texto.Replace(input, output); //Se creo una copia y se modifico, falta sobreescribir el archivo con este nuevo contenido.
-
-            File.Copy(rutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
-
-            File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
-
-            using (FileStream flujoTemporal = new FileStream(rutaArchivoTemporal, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
+            if (textBoxInput.Text != "" && textBoxOutput.Text != null)
             {
-                StreamReader lectorTemporal = new StreamReader(flujoTemporal);
-                richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
-                lectorTemporal.Close();
+                string rutaArchivoTemporal = Path.Combine(RutaProyecto, "temp", NombreArchivo);
+                string input = textBoxInput.Text;
+                string output = textBoxOutput.Text;
+                string texto;
+
+                if (alreadyModified == false)
+                {
+                    texto = richTextBoxOriginal.Text;
+
+                }
+                else
+                {
+                    texto = richTextBoxModificado.Text;
+
+                }
+
+                string textoModificado = texto.Replace(input, output); //Se creo una copia y se modifico, falta sobreescribir el archivo con este nuevo contenido.
+
+                File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
+
+                File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
+
+                using (FileStream flujoTemporal = new FileStream(rutaArchivoTemporal, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
+                {
+                    StreamReader lectorTemporal = new StreamReader(flujoTemporal);
+                    richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
+                    lectorTemporal.Close();
+                }
+                alreadyModified = true;
+
             }
+            else
+            {
+                MessageBox.Show("No ha ingresado nada en los campos reemplazar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
         }
 
         private void SeleccionarFile()
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                rutaArchivo = openFileDialog1.FileName;
-                nombreArchivo = Path.GetFileName(openFileDialog1.FileName);
-                rutaProyecto = Application.StartupPath;
-                labelNombreArchivoOriginal.Text = Path.GetFileName(rutaArchivo);
-                toolStripStatusLabel1.Text = rutaArchivo;
+                alreadyModified = false;
+                RutaArchivo = openFileDialog1.FileName;
+                NombreArchivo = Path.GetFileName(openFileDialog1.FileName);
+                RutaProyecto = Application.StartupPath;
+                labelNombreArchivoOriginal.Text = Path.GetFileName(RutaArchivo);
+                toolStripStatusLabel1.Text = RutaArchivo;
 
-                AbrirFlujo(rutaArchivo, FileMode.Open, FileAccess.ReadWrite);
+                AbrirFlujo(RutaArchivo, FileMode.Open, FileAccess.ReadWrite);
 
                 richTextBoxOriginal.Text = lector.ReadToEnd();
                 flujo.Seek(0, SeekOrigin.Begin);
@@ -116,10 +147,22 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
                 textBoxOutput.Enabled = true;
                 textBoxInput.Enabled = true;
+                buttonReemplazar.Enabled = true;
+                buttonGuardar.Enabled = true;
             }
         }
 
         private void seleccionarNuevoArchivoToolStripMenuItem_Click(object sender, EventArgs e) => SeleccionarFile();
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
+        }
 
         private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
         {
