@@ -2,6 +2,8 @@ namespace SesmaSantiago_RuizLimon_Practica3
 {
     public partial class Form1 : Form
     {
+        private static Form1 instancia;
+
         public Form1()
         {
             InitializeComponent();
@@ -11,6 +13,17 @@ namespace SesmaSantiago_RuizLimon_Practica3
         {
         }
 
+        public static Form1 Instancia
+        {
+            get
+            {
+                if (instancia == null)
+                {
+                    instancia = new Form1();
+                }
+                return instancia;
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -28,6 +41,15 @@ namespace SesmaSantiago_RuizLimon_Practica3
             {
                 labelNombreArchivoOriginal.Text = Path.GetFileName(openFileDialog1.FileName);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Guardar.Instancia.Show();
+            Guardar.Instancia.BringToFront();
+            this.Enabled = false;
+
+            
         }
     }
 }

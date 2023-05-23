@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.statusStripPrincipal = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -123,7 +124,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(223, 42);
+            this.label1.Location = new System.Drawing.Point(212, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(363, 50);
             this.label1.TabIndex = 4;
@@ -178,8 +179,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 29);
             this.button1.TabIndex = 10;
-            this.button1.Text = "Modificar";
+            this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // labelNombreArchivoOriginal
             // 
@@ -254,9 +256,10 @@
             this.Controls.Add(this.richTextBoxOriginal);
             this.Controls.Add(this.statusStripPrincipal);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Reemplazador de Texto";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.statusStripPrincipal.ResumeLayout(false);
             this.statusStripPrincipal.PerformLayout();
