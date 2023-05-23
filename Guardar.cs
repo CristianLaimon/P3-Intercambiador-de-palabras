@@ -26,7 +26,13 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            Form1.Instancia.Enabled = true;
+            Form1.Instancia.Enabled = true; //Para esto es la property del Form1.
+            this.Close();
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            Form1.Instancia.Enabled = true; //Para esto es la property del Form1.
             this.Close();
         }
     }
