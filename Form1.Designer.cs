@@ -190,9 +190,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(410, 203);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 20);
+            this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Vista Previa";
+            this.label4.Text = "Modificado";
             // 
             // richTextBoxModificado
             // 

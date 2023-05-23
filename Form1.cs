@@ -83,15 +83,17 @@ namespace SesmaSantiago_RuizLimon_Practica3
                 if (alreadyModified == false)
                 {
                     texto = richTextBoxOriginal.Text;
+                    alreadyModified = true;
 
                 }
                 else
                 {
                     texto = richTextBoxModificado.Text;
-
                 }
 
                 string textoModificado = texto.Replace(input, output); //Se creo una copia y se modifico, falta sobreescribir el archivo con este nuevo contenido.
+
+                textoModificado = textoModificado.ToUpper();
 
                 File.Copy(RutaArchivo, rutaArchivoTemporal, true); //Se realiza una copia del archivo original
 
@@ -103,8 +105,18 @@ namespace SesmaSantiago_RuizLimon_Practica3
                     richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
                     lectorTemporal.Close();
                 }
-                alreadyModified = true;
 
+                int indiceInicial = 0;
+                int contador = 0;
+                int indiceEncontrado = 0;
+
+                while ((indiceEncontrado = texto.IndexOf(input, indiceInicial)) != -1)
+                {
+                    contador++;
+                    indiceInicial = indiceEncontrado + input.Length;
+                }
+
+                labelNoRemplazos.Text = "No. de Reemplazos: " + contador;
             }
             else
             {
@@ -141,12 +153,12 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "temp"));
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
         }
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "temp"));
+            Process.Start("explorer.exe", Path.Combine(Application.StartupPath, "Modificados"));
         }
 
         private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
