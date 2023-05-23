@@ -1,4 +1,4 @@
-﻿namespace SesmaSantiago_RuizLimon_Practica3.Originales
+﻿namespace SesmaSantiago_RuizLimon_Practica3
 {
     partial class Guardar
     {

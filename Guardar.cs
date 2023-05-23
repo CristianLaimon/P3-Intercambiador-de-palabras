@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SesmaSantiago_RuizLimon_Practica3.Originales
+namespace SesmaSantiago_RuizLimon_Practica3
 {
     public partial class Guardar : Form
     {
