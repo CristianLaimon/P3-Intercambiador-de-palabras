@@ -1,5 +1,3 @@
-using System.Runtime.InteropServices.ComTypes;
-
 namespace SesmaSantiago_RuizLimon_Practica3
 {
     public partial class Form1 : Form
@@ -10,8 +8,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
         private StreamReader lector;
         private string nombreArchivo, rutaArchivo, rutaProyecto;
 
-
-        //private char[] textoChar, inputChar, outputChar;
         public Form1()
         {
             InitializeComponent();
@@ -75,7 +71,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
                 Directory.CreateDirectory(Path.Combine(Application.StartupPath, "temp"));
             }
 
-
             openFileDialog1.InitialDirectory = Path.Combine(Application.StartupPath, "Originales");
             toolStripStatusLabel1.Text = "Hecho por: Diana Sesma Yulissa Santiago y Kristan Ruíz Limón";
             textBoxInput.Enabled = false;
@@ -94,23 +89,16 @@ namespace SesmaSantiago_RuizLimon_Practica3
 
             File.WriteAllText(rutaArchivoTemporal, textoModificado); //Se sobreescribe el contenido del archivo temporal.
 
-            using (FileStream flujoTemporal = new FileStream(rutaArchivo, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
+            using (FileStream flujoTemporal = new FileStream(rutaArchivoTemporal, FileMode.Open, FileAccess.ReadWrite)) //Se muestra el contenido recien cambiado del archivo temporal usando otro filestream (el segundo) temporalemnte
             {
                 StreamReader lectorTemporal = new StreamReader(flujoTemporal);
-                
+                richTextBoxModificado.Text = lectorTemporal.ReadToEnd();
+                lectorTemporal.Close();
             }
-
-            //File.WriteAllText();
-
-
-
-            //richTextBoxModificado.Text = lector.ReadToEnd();
-            //flujo.Seek(0, SeekOrigin.Begin);
         }
 
         private void SeleccionarFile()
         {
-
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 rutaArchivo = openFileDialog1.FileName;
@@ -132,7 +120,6 @@ namespace SesmaSantiago_RuizLimon_Practica3
         }
 
         private void seleccionarNuevoArchivoToolStripMenuItem_Click(object sender, EventArgs e) => SeleccionarFile();
-
 
         private void textBoxInput_KeyPress(object sender, KeyPressEventArgs e)
         {

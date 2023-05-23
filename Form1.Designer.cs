@@ -244,7 +244,7 @@
             this.textBoxOutput.Location = new System.Drawing.Point(492, 103);
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.Size = new System.Drawing.Size(186, 27);
-            this.textBoxOutput.TabIndex = 14;
+            this.textBoxOutput.TabIndex = 6;
             this.textBoxOutput.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxOutput_KeyPress);
             // 
             // labelNoRemplazos
@@ -288,7 +288,7 @@
             // 
             // buttonReemplazar
             // 
-            this.buttonReemplazar.Location = new System.Drawing.Point(332, 650);
+            this.buttonReemplazar.Location = new System.Drawing.Point(331, 655);
             this.buttonReemplazar.Name = "buttonReemplazar";
             this.buttonReemplazar.Size = new System.Drawing.Size(106, 30);
             this.buttonReemplazar.TabIndex = 19;
